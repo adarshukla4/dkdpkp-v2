@@ -97,6 +97,8 @@ html[lang="gu"] .k{font-size:13px}
 details{border:1px solid var(--line);border-radius:14px;padding:12px 16px;background:var(--surface)}
 summary{cursor:pointer;font-weight:700;font-size:14px}
 details .grid2,details .full{margin-top:12px}
+details.comp>summary{font-size:16px}
+.comp-body{display:grid;gap:16px;margin-top:14px}
 .foot{font-size:13px;color:var(--muted);margin:0}
 .rec{display:grid;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);min-width:0}
 .rec-h{display:flex;justify-content:space-between;gap:4px 8px;align-items:baseline;flex-wrap:wrap}
@@ -156,6 +158,16 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
     <section class="card" aria-labelledby="h-cob">
       <h2 id="h-cob" data-i="cobTitle"></h2>
       <div>
+        <label for="seed" data-i="seedLabel"></label>
+        <select id="seed">
+          <option value="" data-i="seedSelect"></option>
+          <option value="Adv 9293">Adv 9293</option>
+          <option value="Adv 751">Adv 751</option>
+          <option value="Adv 741">Adv 741</option>
+          <option value="Adv 765">Adv 765</option>
+        </select>
+      </div>
+      <div>
         <label for="cob-in" data-i="cobAdd"></label>
         <div class="add">
           <input id="cob-in" type="number" inputmode="decimal" min="0" step="any" data-ph="kgPh">
@@ -187,40 +199,6 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
       </div>
     </section>
 
-    <section class="card" aria-labelledby="h-ccob">
-      <h2 id="h-ccob" data-i="ccobTitle"></h2>
-      <div>
-        <label for="ccob-in" data-i="cobAdd"></label>
-        <div class="add">
-          <input id="ccob-in" type="number" inputmode="decimal" min="0" step="any" data-ph="kgPh">
-          <button type="button" class="btn" id="ccob-add" data-i="add" data-al="ccobAddAria"></button>
-        </div>
-      </div>
-      <ul class="bags" id="ccob-list"></ul>
-      <div class="total"><span class="lbl" style="margin:0" data-i="plotTotal"></span><span class="big" id="ccob-plot">—</span></div>
-      <div>
-        <p class="cap" data-i="perAcre"></p>
-        <div class="triple" data-id="ccob-a"></div>
-      </div>
-    </section>
-
-    <section class="card" aria-labelledby="h-cgrain">
-      <h2 id="h-cgrain" data-i="cgrainTitle"></h2>
-      <div>
-        <label for="cgrain-in" data-i="grainAdd"></label>
-        <div class="add">
-          <input id="cgrain-in" type="number" inputmode="decimal" min="0" step="any" data-ph="kgPh">
-          <button type="button" class="btn" id="cgrain-add" data-i="add" data-al="cgrainAddAria"></button>
-        </div>
-      </div>
-      <ul class="bags" id="cgrain-list"></ul>
-      <div class="total"><span class="lbl" style="margin:0" data-i="plotTotal"></span><span class="big" id="cgrain-plot">—</span></div>
-      <div>
-        <p class="cap" data-i="perAcre"></p>
-        <div class="triple" data-id="cgrain-a"></div>
-      </div>
-    </section>
-
     <section class="card" aria-labelledby="h-shell">
       <h2 id="h-shell" data-i="shellTitle"></h2>
       <p class="note" data-i="shellUnit"></p>
@@ -229,12 +207,59 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
         <span class="big" id="shelling">—</span>
       </div>
       <p class="warn" id="shell-warn" data-i="shellWarn" hidden></p>
-      <div class="hero">
-        <span class="unit" data-i="shellComp"></span>
-        <span class="big" id="shelling-c">—</span>
-      </div>
-      <p class="warn" id="shell-warn-c" data-i="shellWarn" hidden></p>
     </section>
+
+    <details class="comp" id="comp">
+      <summary data-i="compSummary"></summary>
+      <div class="comp-body">
+        <section class="card" aria-labelledby="h-ccob">
+          <h2 id="h-ccob" data-i="ccobTitle"></h2>
+          <div>
+            <label for="cseed" data-i="cseedLabel"></label>
+            <input id="cseed" type="text" maxlength="60" data-ph="cseedPh" autocomplete="off">
+          </div>
+          <div>
+            <label for="ccob-in" data-i="cobAdd"></label>
+            <div class="add">
+              <input id="ccob-in" type="number" inputmode="decimal" min="0" step="any" data-ph="kgPh">
+              <button type="button" class="btn" id="ccob-add" data-i="add" data-al="ccobAddAria"></button>
+            </div>
+          </div>
+          <ul class="bags" id="ccob-list"></ul>
+          <div class="total"><span class="lbl" style="margin:0" data-i="plotTotal"></span><span class="big" id="ccob-plot">—</span></div>
+          <div>
+            <p class="cap" data-i="perAcre"></p>
+            <div class="triple" data-id="ccob-a"></div>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="h-cgrain">
+          <h2 id="h-cgrain" data-i="cgrainTitle"></h2>
+          <div>
+            <label for="cgrain-in" data-i="grainAdd"></label>
+            <div class="add">
+              <input id="cgrain-in" type="number" inputmode="decimal" min="0" step="any" data-ph="kgPh">
+              <button type="button" class="btn" id="cgrain-add" data-i="add" data-al="cgrainAddAria"></button>
+            </div>
+          </div>
+          <ul class="bags" id="cgrain-list"></ul>
+          <div class="total"><span class="lbl" style="margin:0" data-i="plotTotal"></span><span class="big" id="cgrain-plot">—</span></div>
+          <div>
+            <p class="cap" data-i="perAcre"></p>
+            <div class="triple" data-id="cgrain-a"></div>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="h-cshell">
+          <h2 id="h-cshell" data-i="cshellTitle"></h2>
+          <div class="hero">
+            <span class="unit" data-i="shellUnit"></span>
+            <span class="big" id="shelling-c">—</span>
+          </div>
+          <p class="warn" id="shell-warn-c" data-i="shellWarn" hidden></p>
+        </section>
+      </div>
+    </details>
 
     <section class="card" aria-labelledby="h-inc">
       <h2 id="h-inc" data-i="incTitle"></h2>
@@ -269,6 +294,7 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
             <option value="mann" data-i="mann"></option>
           </select>
         </div>
+        <p class="note" id="base-note" style="margin-top:6px"></p>
       </div>
 
       <div class="cmp">
@@ -278,7 +304,7 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
           <div class="cmp-i" id="with-inc">—</div>
         </div>
         <div class="cmp-row">
-          <div class="cmp-l"><span data-i="withoutAdv"></span><small data-i="withoutSmall"></small></div>
+          <div class="cmp-l"><span data-i="withoutAdv"></span><small id="wo-small"></small></div>
           <div class="cmp-w"><span id="wo-q">—</span> <span data-i="qtlS"></span> · <span id="wo-m">—</span> <span data-i="mannS"></span></div>
           <div class="cmp-i" id="wo-inc">—</div>
         </div>
@@ -355,9 +381,9 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
   'use strict';
   var FACTOR = 40;
   var SKEY = 'dkdpkp-v2', RKEY = 'dkdpkp-records-v2';
-  var DEF = { pop: '', mdo: '', cluster: '', cob: [], grain: [], ccob: [], cgrain: [], moist: '', price: '', unit: 'qtl', baseline: '', baseUnit: 'qtl', std: '14', method: 'simple', label: '', village: '', lat: '', lon: '', acc: '', lang: 'gu', recId: null };
-  var INPUTS = ['pop', 'moist', 'price', 'baseline', 'std', 'label', 'village', 'mdo', 'cluster', 'lat', 'lon'];
-  var SELECTS = ['unit', 'baseUnit', 'method'];
+  var DEF = { pop: '', mdo: '', cluster: '', seed: '', cseed: '', cob: [], grain: [], ccob: [], cgrain: [], moist: '', price: '', unit: 'qtl', baseline: '', baseManual: false, baseUnit: 'qtl', std: '14', method: 'simple', label: '', village: '', lat: '', lon: '', acc: '', lang: 'gu', recId: null };
+  var INPUTS = ['pop', 'moist', 'price', 'baseline', 'std', 'label', 'village', 'mdo', 'cluster', 'cseed', 'lat', 'lon'];
+  var SELECTS = ['unit', 'baseUnit', 'method', 'seed'];
   var storeOk = true;
   try { localStorage.setItem('dkdpkp-t', '1'); localStorage.removeItem('dkdpkp-t'); } catch (e) { storeOk = false; }
 
@@ -387,6 +413,13 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
       ccobTitle: 'સ્પર્ધક: થ્રેશિંગ પહેલાં કુલ વજન (ડોડા સાથે મકાઈ)',
       ccobAddAria: 'સ્પર્ધકના ડોડાનું વજન ઉમેરો', cgrainAddAria: 'સ્પર્ધકના દાણાની થેલીનું વજન ઉમેરો',
       shellAdv: 'Advanta', shellComp: 'સ્પર્ધક',
+      seedLabel: 'Advanta હાઇબ્રિડ', seedSelect: '— પસંદ કરો —',
+      cseedLabel: 'સ્પર્ધક હાઇબ્રિડ / કંપનીનું નામ', cseedPh: 'નામ લખો',
+      compSummary: 'સ્પર્ધક ઉમેરો (ખોલવા દબાવો)', cshellTitle: 'સ્પર્ધક: શેલિંગ ટકાવારી',
+      withoutSmallAuto: 'સ્પર્ધકના દાણા (ભેજ સુધારેલ)',
+      baseAutoNote: 'સ્પર્ધકના દાણામાંથી ભેજ સુધારીને આપોઆપ ભરાયું. બદલવા માટે જાતે લખો, ફરી આપોઆપ માટે ખાનું ખાલી કરો.',
+      baseManualNote: 'તમે લખેલી કિંમત વપરાય છે. સ્પર્ધકના દાણા વાપરવા ખાનું ખાલી કરો.',
+      baseNeedMoist: 'સ્પર્ધકના દાણા આપોઆપ ભરવા માટે ઉપર હાલનો ભેજ % લખો.',
       cobAdd: 'વજન ઉમેરો (કિલો)', kgPh: 'કિલો', add: '+ ઉમેરો',
       cobAddAria: 'ડોડાનું વજન ઉમેરો', grainAddAria: 'દાણાની થેલીનું વજન ઉમેરો',
       bagHd1: 'થેલી', bagHd2: 'વજન (કિલો)', bagHd3: 'કુલ સરવાળો',
@@ -433,7 +466,7 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
       empty: 'હજી કોઈ રેકોર્ડ નથી. કેલ્ક્યુલેટરમાં માહિતી ભરીને “રેકોર્ડ સાચવો” દબાવો.',
       open: 'ખોલો', del: 'કાઢી નાખો', delAgain: 'કાઢવા ફરી દબાવો',
       noVillage: 'ગામ નથી', mapLink: 'નકશો: {lat}, {lon}',
-      exFarmer: 'ઉદાહરણ ખેડૂત', exVillage: 'ઉદાહરણ ગામ', exMdo: 'ઉદાહરણ MDO', exCluster: 'ઉદાહરણ ક્લસ્ટર'
+      exFarmer: 'ઉદાહરણ ખેડૂત', exVillage: 'ઉદાહરણ ગામ', exComp: 'ઉદાહરણ સ્પર્ધક', exMdo: 'ઉદાહરણ MDO', exCluster: 'ઉદાહરણ ક્લસ્ટર'
     },
     en: {
       title: 'DKDPKP Field Calculator',
@@ -459,6 +492,13 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
       ccobTitle: 'Competitor: total weight before threshing (corn with cob)',
       ccobAddAria: 'Add competitor cob weight', cgrainAddAria: 'Add competitor grain bag weight',
       shellAdv: 'Advanta', shellComp: 'Competitor',
+      seedLabel: 'Advanta hybrid', seedSelect: '— Select —',
+      cseedLabel: 'Competitor hybrid / company name', cseedPh: 'Type the name',
+      compSummary: 'Add competitor (tap to open)', cshellTitle: 'Competitor: shelling percentage',
+      withoutSmallAuto: 'Competitor grain, moisture-adjusted',
+      baseAutoNote: 'Auto-filled from competitor grain after the moisture adjustment. Type to override, clear the field to go back to auto.',
+      baseManualNote: 'Using your typed value. Clear the field to use competitor grain instead.',
+      baseNeedMoist: 'Enter the current moisture % above to auto-fill from competitor grain.',
       cobAdd: 'Add a weight (kg)', kgPh: 'kg', add: '+ Add',
       cobAddAria: 'Add cob weight', grainAddAria: 'Add grain bag weight',
       bagHd1: 'Bag', bagHd2: 'Weight (kg)', bagHd3: 'Running total',
@@ -505,7 +545,7 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
       empty: 'No records yet. Fill in the calculator and tap Save record.',
       open: 'Open', del: 'Delete', delAgain: 'Tap again to delete',
       noVillage: 'No village', mapLink: 'Map: {lat}, {lon}',
-      exFarmer: 'Example farmer', exVillage: 'Example village', exMdo: 'Example MDO', exCluster: 'Example cluster'
+      exFarmer: 'Example farmer', exVillage: 'Example village', exComp: 'Example competitor', exMdo: 'Example MDO', exCluster: 'Example cluster'
     }
   };
   var S = load();
@@ -581,8 +621,13 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
     var div = units[S.unit] || 100;
     var p = num(S.price);
     r.pricePerKg = (p != null && p >= 0) ? p / div : null;
+    r.cAdjKg = null;
+    if (r.cgAcre != null && r.moistOk) r.cAdjKg = S.method === 'dm' ? r.cgAcre * (100 - m) / (100 - std) : r.cgAcre * (1 - (m - std) / 100);
     var b = num(S.baseline);
-    r.baseKg = (b != null && b >= 0) ? b * (units[S.baseUnit] || 100) : null;
+    var manualKg = (b != null && b >= 0) ? b * (units[S.baseUnit] || 100) : null;
+    r.baseManual = S.baseManual === undefined ? (b != null) : !!S.baseManual;
+    r.baseAuto = !r.baseManual && r.cAdjKg != null;
+    r.baseKg = r.baseAuto ? r.cAdjKg : manualKg;
     r.withInc = (r.adjKg != null && r.pricePerKg != null) ? r.adjKg * r.pricePerKg : null;
     r.withoutInc = (r.baseKg != null && r.pricePerKg != null) ? r.baseKg * r.pricePerKg : null;
     r.gain = (r.withInc != null && r.withoutInc != null) ? r.withInc - r.withoutInc : null;
@@ -682,6 +727,15 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
     $('adj-note').textContent = note;
 
     $('price-note').textContent = r.pricePerKg == null ? '' : t('priceNote', { p: fmt(r.pricePerKg, 2, 2) });
+    var bdiv = { kg: 1, qtl: 100, mann: 20 }[S.baseUnit] || 100;
+    if (r.baseAuto) $('baseline').value = String(Math.round(r.cAdjKg / bdiv * 100) / 100);
+    else if (!r.baseManual) $('baseline').value = S.baseline;
+    var bn = '';
+    if (r.baseAuto) bn = t('baseAutoNote');
+    else if (r.baseManual && r.cgAcre != null) bn = t('baseManualNote');
+    else if (!r.baseManual && r.cgAcre != null && !r.moistOk) bn = t('baseNeedMoist');
+    $('base-note').textContent = bn;
+    $('wo-small').textContent = t(r.baseAuto ? 'withoutSmallAuto' : 'withoutSmall');
 
     $('with-q').textContent = fmt(r.adjKg == null ? null : r.adjKg / 100, 2, 2);
     $('with-m').textContent = fmt(r.adjKg == null ? null : r.adjKg / 20, 1, 1);
@@ -697,6 +751,9 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
     save();
   }
 
+  function syncComp() {
+    if (S.ccob.length || S.cgrain.length || S.cseed) $('comp').open = true;
+  }
   function sync() {
     INPUTS.forEach(function (k) { $(k).value = S[k]; });
     SELECTS.forEach(function (k) { $(k).value = S[k]; });
@@ -747,6 +804,7 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
       if (x.s.village && x.label) parts.push(x.label);
       if (x.s.cluster) parts.push(x.s.cluster);
       if (x.s.mdo) parts.push('MDO: ' + x.s.mdo);
+      if (x.s.seed || x.s.cseed) parts.push((x.s.seed || '?') + (x.s.cseed ? ' vs ' + x.s.cseed : ''));
       parts.push(dstr(x.ts));
       h.append(cell(x.s.village || x.label || t('noVillage'), 'rec-t'), cell(parts.join(' · '), 'rec-d'));
       var s = document.createElement('div'); s.className = 'rec-s';
@@ -761,7 +819,7 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
       open.addEventListener('click', function () {
         S = Object.assign(clone(DEF), clone(x.s), { recId: x.id, lang: S.lang });
         migrate(S);
-        sync(); $('save-msg').textContent = ''; locNote = ''; update(); show('calc');
+        sync(); $('save-msg').textContent = ''; locNote = ''; update(); syncComp(); show('calc');
       });
       var del = document.createElement('button'); del.type = 'button'; del.className = 'btn ghost sm'; del.textContent = t('del');
       var tm = null;
@@ -810,6 +868,8 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
     ['GPS accuracy m', function (x) { return num(x.s.acc); }],
     ['Plants in 10x10 m plot', function (x, r) { return r.plantsPlot; }],
     ['Plants per acre', function (x, r) { return r.plantsAcre; }],
+    ['Advanta hybrid', function (x) { return x.s.seed || ''; }, 1],
+    ['Competitor hybrid', function (x) { return x.s.cseed || ''; }, 1],
     ['Cob bags kg (plot)', function (x) { return x.s.cob.join(' + '); }, 1],
     ['Cob total kg (plot)', function (x, r) { return x.s.cob.length ? rn(r.cobPlot, 2) : ''; }],
     ['Cob kg per acre', function (x, r) { return rn(r.cobAcre, 1); }],
@@ -836,8 +896,9 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
     ['Adjusted Mann per acre', function (x, r) { return rn(r.adjKg == null ? null : r.adjKg / 20, 1); }],
     ['Price', function (x) { return num(x.s.price); }],
     ['Price per', function (x) { return UN[x.s.unit] || 'Quintal'; }, 1],
-    ['Without Advanta yield per acre', function (x) { return num(x.s.baseline); }],
+    ['Without Advanta yield per acre', function (x, r) { var u = { kg: 1, qtl: 100, mann: 20 }[x.s.baseUnit] || 100; return rn(r.baseKg == null ? null : r.baseKg / u, 2); }],
     ['Without Advanta yield unit', function (x) { return UN[x.s.baseUnit] || 'Quintal'; }, 1],
+    ['Without Advanta source', function (x, r) { return r.baseKg == null ? '' : (r.baseAuto ? 'Auto from competitor grain' : 'Manual'); }, 1],
     ['Without Advanta qtl per acre', function (x, r) { return rn(r.baseKg == null ? null : r.baseKg / 100, 2); }],
     ['Income with Advanta', function (x, r) { return rn(r.withInc, 0); }],
     ['Income without Advanta', function (x, r) { return rn(r.withoutInc, 0); }],
@@ -924,7 +985,7 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
       '<div><span class="k" data-i="qtl"></span><span class="v" id="' + id + '-q">—</span></div>' +
       '<div><span class="k" data-i="mann"></span><span class="v" id="' + id + '-m">—</span></div>';
   });
-  INPUTS.forEach(function (k) { $(k).addEventListener('input', function () { S[k] = this.value; if (k === 'lat' || k === 'lon') S.acc = ''; edit(); }); });
+  INPUTS.forEach(function (k) { $(k).addEventListener('input', function () { S[k] = this.value; if (k === 'lat' || k === 'lon') S.acc = ''; if (k === 'baseline') S.baseManual = this.value !== ''; edit(); }); });
   SELECTS.forEach(function (k) { $(k).addEventListener('change', function () { S[k] = this.value; edit(); }); });
   $('lang').addEventListener('change', function () {
     S.lang = this.value === 'en' ? 'en' : 'gu';
@@ -941,10 +1002,10 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
   $('share').addEventListener('click', shareCsv);
 
   $('example').addEventListener('click', function () {
-    S.pop = '750'; S.cob = [16, 15.25]; S.grain = [12.5, 12.5]; S.ccob = [15, 14.25]; S.cgrain = [11, 11];
-    S.moist = '25'; S.price = '2400'; S.unit = 'qtl'; S.baseline = '5'; S.baseUnit = 'qtl';
+    S.pop = '750'; S.cob = [16, 15.25]; S.grain = [12.5, 12.5]; S.ccob = [15, 14.25]; S.cgrain = [11, 11]; S.seed = 'Adv 9293'; S.cseed = t('exComp');
+    S.moist = '25'; S.price = '2400'; S.unit = 'qtl'; S.baseline = '5'; S.baseManual = true; S.baseUnit = 'qtl';
     S.label = t('exFarmer'); S.village = t('exVillage'); S.mdo = S.mdo || t('exMdo'); S.cluster = S.cluster || t('exCluster'); S.recId = null;
-    sync(); edit();
+    sync(); edit(); syncComp();
   });
 
   var clr = $('clear'), timer = null;
@@ -957,12 +1018,13 @@ textarea.csv{width:100%;min-height:140px;font:13px/1.4 ui-monospace,Menlo,Consol
     clearTimeout(timer); timer = null; clr.textContent = t('clear');
     var keep = { std: S.std, method: S.method, mdo: S.mdo, cluster: S.cluster, village: S.village, lang: S.lang };
     S = Object.assign(clone(DEF), keep);
-    sync(); edit();
+    sync(); edit(); $('comp').open = false;
   });
 
   applyLang();
   sync();
   update();
+  syncComp();
   renderSaved();
 })();
 </script>
